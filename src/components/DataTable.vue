@@ -78,7 +78,7 @@
   </template>
   <template #expand="item">
     <div class="p-5">
-      <h2 class="font-bold">Short Description</h2>
+      <h2 class="font-bold">Short Descriptions</h2>
       <p v-if="!item.short_description">None 😢</p>
       <p v-else>{{ item.short_description }}</p>
     </div>
