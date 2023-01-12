@@ -2,7 +2,7 @@
   <div class="w-full mb-6 md:mb-0">
     <div class="relative  mb-4">
       <div class="usage-filter">
-      <label class="filter-label">Usage Filter</label>
+      <label class="filter-label">Usage Filter test for github</label>
       <select
         @change="filterData(subCat)"
         v-model="subCat"
