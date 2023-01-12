@@ -1,8 +1,37 @@
 <template>
   <div class="my-16">
+    <div class="graph_one">
+      <table
+        id="animations-example-6"
+        class="charts-css column show-labels hide-data data-spacing-5 show-primary-axis"
+      >
+        <tbody>
+          <tr>
+            <th scope="row">Data</th>
+            <td class="td_one"></td>
+          </tr>
+          <tr>
+            <th scope="row">BI</th>
+            <td class="td_two"></td>
+          </tr>
+          <tr>
+            <th scope="row">SQL</th>
+            <td class="td_three"></td>
+          </tr>
+          <tr>
+            <th scope="row">Python</th>
+            <td class="td_four"></td>
+          </tr>
+          <tr>
+            <th scope="row">Cloud</th>
+            <td class="td_five"></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
     <div id="lang-wrapper">
       <swiper
-      :grabCursor="true"
+        :grabCursor="true"
         :slideToClickedSlide="true"
         :centeredSlides="true"
         :modules="modules"
@@ -16,20 +45,20 @@
         }"
       >
         <swiper-slide
-        class="px-2 !mx-0 single-category"
-        v-for="(cat, index) in catsFirstLine"
-        :key="index"
+          class="px-2 !mx-0 single-category"
+          v-for="(cat, index) in catsFirstLine"
+          :key="index"
         >
-        <img
-        @click="clickCategory(cat)"
-        :class="`cursor-pointer max-h-16 category-img max-w-16 sm:max-h-18 sm:max-w-18 md:max-h-20 md:max-w-20 lg:max-h-24 lg:max-w-24 xl:max-h-28 xl:max-w-28 lang-logo ${cat}-logo`"
-        :alt="cat"
-        :src="`/logos/${cat}.png`"
-      />
-      <p class="category-name">{{ cat }}</p>
+          <img
+            @click="clickCategory(cat)"
+            :class="`cursor-pointer max-h-16 category-img max-w-16 sm:max-h-18 sm:max-w-18 md:max-h-20 md:max-w-20 lg:max-h-24 lg:max-w-24 xl:max-h-28 xl:max-w-28 lang-logo ${cat}-logo`"
+            :alt="cat"
+            :src="`/logos/${cat}.png`"
+          />
+          <p class="category-name">{{ cat }}</p>
         </swiper-slide>
       </swiper>
-    </div> 
+    </div>
     <div id="swiper-buttons" class="flex justify-between mt-4 mx-4">
       <button @click="prev(0)">
         <svg
@@ -52,7 +81,7 @@
     </div>
     <div id="lang-wrapper">
       <swiper
-      :grabCursor="true"
+        :grabCursor="true"
         :slideToClickedSlide="true"
         :centeredSlides="true"
         :modules="modules"
@@ -66,20 +95,20 @@
         }"
       >
         <swiper-slide
-        class="px-2 !mx-0 single-category"
-        v-for="(cat, index) in catsSecondLine"
-        :key="index"
+          class="px-2 !mx-0 single-category"
+          v-for="(cat, index) in catsSecondLine"
+          :key="index"
         >
-        <img
-        @click="clickCategory(cat)"
-        :class="`cursor-pointer max-h-16 mt-10 category-img max-w-16 sm:max-h-18 sm:max-w-18 md:max-h-20 md:max-w-20 lg:max-h-24 lg:max-w-24 xl:max-h-28 xl:max-w-28 lang-logo ${cat}-logo`"
-        :alt="cat"
-        :src="`/logos/${cat}.png`"
-      />
-      <p class="category-name">{{ cat }}</p>
+          <img
+            @click="clickCategory(cat)"
+            :class="`cursor-pointer max-h-16 mt-10 category-img max-w-16 sm:max-h-18 sm:max-w-18 md:max-h-20 md:max-w-20 lg:max-h-24 lg:max-w-24 xl:max-h-28 xl:max-w-28 lang-logo ${cat}-logo`"
+            :alt="cat"
+            :src="`/logos/${cat}.png`"
+          />
+          <p class="category-name">{{ cat }}</p>
         </swiper-slide>
       </swiper>
-    </div> 
+    </div>
     <div id="swiper-buttons" class="flex justify-between mt-4 mx-4">
       <button @click="prev(1)">
         <svg
@@ -142,7 +171,6 @@
   opacity: 1;
 }
 
-
 .swiper-slide.single-category {
   display: flex;
   flex-direction: column;
@@ -151,7 +179,72 @@
 .single-category p.category-name {
   color: wheat;
 }
+graph_one {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+}
 
+#animations-example-6 {
+  height: 100px;
+  max-width: 350px;
+  margin: 0 auto;
+}
+#animations-example-6 td {
+  background-image: linear-gradient(
+    45deg,
+    #BEFFE7,
+    #F8BEFF,
+    #FFF1BE,
+    #BEECFF,
+    #E5D3FF,
+    #FFD3D3
+  );
+  background-size: 600%;
+  animation: gradient-animation 3s linear infinite alternate;
+}
+@keyframes gradient-animation {
+  0% {
+    background-position: 0%;
+  }
+  100% {
+    background-position: 100%;
+  }
+}
+.graph_one {
+  margin-top: -20px;
+  margin-bottom: 20px;
+}
+.graph_one th {
+  color: #fff;
+  margin-top: 3px;
+}
+.graph_one tr {
+  display: flex !important;
+  flex-direction: column-reverse !important;
+  width: 70px;
+  margin: 5px;
+}
+.graph_one .td_one {
+  height: 70px;
+}
+.graph_one .td_two {
+  height: 100px;
+}
+.graph_one .td_three {
+  height: 60px;
+}
+.graph_one .td_four {
+  height: 90px;
+}
+.graph_one .td_five {
+  height: 50px;
+}
+.graph_one tbody {
+  display: flex !important;
+}
 </style>
 
 <script lang="ts">
@@ -170,7 +263,7 @@ const CATEGORIESFIRSTLINE = [
   "amazon",
   "apple",
   "microsoft",
-  "tesla"
+  "tesla",
 ];
 const CATEGORIESSECONDLINE = [
   "telecom",
@@ -181,25 +274,24 @@ const CATEGORIESSECONDLINE = [
   "earth",
   "solar",
   "electricity",
-  "google"
+  "google",
 ];
 
 function highlightSelected(cat: string) {
-  if(cat!="" && cat!='all') {
-  const logos = document.querySelectorAll(".lang-logo");
-  logos.forEach((logo) => {
-    logo.classList.remove("logo-selected");
-  });
-  document.querySelectorAll(`.${cat}-logo`).forEach((logo) => {
-    logo.classList.add("logo-selected");
-  });
-}
-else{
-  const logos = document.querySelectorAll(".lang-logo");
-  logos.forEach((logo) => {
-    logo.classList.add("logo-selected");
-  });
-}
+  if (cat != "" && cat != "all") {
+    const logos = document.querySelectorAll(".lang-logo");
+    logos.forEach((logo) => {
+      logo.classList.remove("logo-selected");
+    });
+    document.querySelectorAll(`.${cat}-logo`).forEach((logo) => {
+      logo.classList.add("logo-selected");
+    });
+  } else {
+    const logos = document.querySelectorAll(".lang-logo");
+    logos.forEach((logo) => {
+      logo.classList.add("logo-selected");
+    });
+  }
 }
 
 export default defineComponent({
@@ -221,22 +313,24 @@ export default defineComponent({
       highlightSelected(cat);
     },
     next(index) {
-      let button = document?.getElementsByClassName(
-        "swiper-button-next"
-      )[index] as HTMLElement;
-      console.log("button: " ,button);
+      let button = document?.getElementsByClassName("swiper-button-next")[
+        index
+      ] as HTMLElement;
+      console.log("button: ", button);
       button.click();
     },
     prev(index) {
-      let button = document?.getElementsByClassName(
-        "swiper-button-prev"
-      )[index] as HTMLElement;
+      let button = document?.getElementsByClassName("swiper-button-prev")[
+        index
+      ] as HTMLElement;
       button.click();
     },
   },
   mounted() {
     highlightSelected("all");
-    setTimeout(() => {this.navValue = true},2000)
+    setTimeout(() => {
+      this.navValue = true;
+    }, 2000);
   },
 });
 </script>
