@@ -6,7 +6,6 @@
         :slideToClickedSlide="true"
         :centeredSlides="true"
         :modules="modules"
-        :navigation="true"
         :slides-per-view="5"
         :loop="true"
         :breakpoints="{
@@ -56,7 +55,6 @@
         :slideToClickedSlide="true"
         :centeredSlides="true"
         :modules="modules"
-        :navigation="true"
         :slides-per-view="5"
         :loop="true"
         :breakpoints="{
