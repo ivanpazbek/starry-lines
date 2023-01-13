@@ -210,8 +210,12 @@ export default defineComponent({
       ],
       colms: [],
       rows: [],
-      items: [],
-      mainData: [],
+      items: [{
+        usage:''
+      }],
+      mainData: [{
+        usage:''
+      }],
       subCat: "",
       loading: true,
     };
@@ -220,7 +224,7 @@ export default defineComponent({
     filterData(subCat: String) {
       this.items = this.mainData;
       if (subCat != "")
-        this.items = this.items.filter((item) => item["usage"] == subCat);
+        this.items = this.items.filter((item) => item.usage == subCat);
     },
     async fetchData() {
       this.loading = true;
@@ -242,7 +246,7 @@ export default defineComponent({
 
           json.table.rows.forEach((row: {c: any[];},index: Number) => {
               if (index != 0) {
-                var obj = {
+                var obj:any = {
                   address: "",
                   category: "",
                   content: "",
@@ -254,15 +258,13 @@ export default defineComponent({
                   usage: "",
                 };
 
-                row.c.map(
-                  (
-              value: {v: String},key) => {
+                row.c.map((value: {v: String},key: any) => {
                     if(self.colms[key]=='category' || self.colms[key]=='usage')
                     obj[self.colms[key]] = value.v.toLowerCase().trim();
                     else
                     obj[self.colms[key]] = value.v;
-                  }
-                );
+                  });
+
                 if(self.category=='') self.mainData.push(obj);
                 else if (self.category!='' && obj.category.trim() == self.category) self.mainData.push(obj);
                 

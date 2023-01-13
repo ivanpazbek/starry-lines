@@ -6,6 +6,7 @@
         :slideToClickedSlide="true"
         :centeredSlides="true"
         :modules="modules"
+        :navigation="true"
         :slides-per-view="5"
         :loop="true"
         :breakpoints="{
@@ -55,6 +56,7 @@
         :slideToClickedSlide="true"
         :centeredSlides="true"
         :modules="modules"
+        :navigation="true"
         :slides-per-view="5"
         :loop="true"
         :breakpoints="{
@@ -210,7 +212,6 @@ export default defineComponent({
       catsFirstLine: CATEGORIESFIRSTLINE,
       catsSecondLine: CATEGORIESSECONDLINE,
       modules: [Keyboard, Navigation, FreeMode],
-      navValue: undefined,
     };
   },
   methods: {
@@ -218,14 +219,14 @@ export default defineComponent({
       this.$emit("clickCategory", cat);
       highlightSelected(cat);
     },
-    next(index) {
+    next(index: number) {
       let button = document?.getElementsByClassName(
         "swiper-button-next"
       )[index] as HTMLElement;
       console.log("button: " ,button);
       button.click();
     },
-    prev(index) {
+    prev(index: number) {
       let button = document?.getElementsByClassName(
         "swiper-button-prev"
       )[index] as HTMLElement;
@@ -234,7 +235,6 @@ export default defineComponent({
   },
   mounted() {
     highlightSelected("all");
-    setTimeout(() => {this.navValue = true},2000)
   },
 });
 </script>
