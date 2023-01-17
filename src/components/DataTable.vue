@@ -1,43 +1,22 @@
 <template>
   <div class="w-full mb-6 md:mb-0">
-    <div class="relative  mb-4">
+    <div class="relative mb-4">
       <div class="usage-filter">
-      <label class="filter-label">Usage Filter</label>
-      <select
-        @change="filterData(subCat)"
-        v-model="subCat"
-        class="
-          block
-          appearance-none
-          bg-gray-200
-          border border-gray-200
-          text-gray-700
-          py-3
-          px-4
-          pr-8
-          rounded
-          leading-tight
-          focus:outline-none focus:bg-white focus:border-gray-500
-        "
-        id="grid-state"
-      >
-        <option value="">Sub filter</option>
-        <option value="app">App</option>
-        <option value="article">Article</option>
-        <option value="api">Api</option>
-      </select>
+        <label class="filter-label">Usage Filter</label>
+        <select
+          @change="filterData(subCat)"
+          v-model="subCat"
+          class="block appearance-none bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+          id="grid-state"
+        >
+          <option value="">Sub filter</option>
+          <option value="app">App</option>
+          <option value="article">Article</option>
+          <option value="api">Api</option>
+        </select>
       </div>
       <div
-        class="
-          pointer-events-none
-          absolute
-          inset-y-0
-          right-0
-          flex
-          items-center
-          px-2
-          text-gray-700
-        "
+        class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700"
       >
         <svg
           class="fill-current h-4 w-4"
@@ -52,38 +31,38 @@
     </div>
   </div>
   <EasyDataTable
-  ref="data-table"
-  table-class-name="data-table"
-  class="font-mono"
-  :headers="headers"
-  :items="items"
-  :loading="loading"
-  :header-item-class-name="getHeaderClassNameByIndex"
-  :body-item-class-name="getItemClassNameByIndex"
-  updatePage
-  @click-row="expandRow"
-  theme-color="#FFC40C"
-  header-text-direction="center"
-  body-text-direction="center"
-  alternating
->
-  <template #item-name="{ name, url }">
-    <a
-      class="repo-link after:content-['_↗'] after:text-sm after:pb-2"
-      :href="url"
-      target="_blank"
-      rel="noopener noreferrer"
-      >{{ name }}</a
-    >
-  </template>
-  <template #expand="item">
-    <div class="p-5">
-      <h2 class="font-bold">Short Description</h2>
-      <p v-if="!item.short_description">None 😢</p>
-      <p v-else>{{ item.short_description }}</p>
-    </div>
-  </template>
-</EasyDataTable>
+    ref="data-table"
+    table-class-name="data-table"
+    class="font-mono"
+    :headers="headers"
+    :items="items"
+    :loading="loading"
+    :header-item-class-name="getHeaderClassNameByIndex"
+    :body-item-class-name="getItemClassNameByIndex"
+    updatePage
+    @click-row="expandRow"
+    theme-color="#FFC40C"
+    header-text-direction="center"
+    body-text-direction="center"
+    alternating
+  >
+    <template #item-name="{ name, url }">
+      <a
+        class="repo-link after:content-['_↗'] after:text-sm after:pb-2"
+        :href="url"
+        target="_blank"
+        rel="noopener noreferrer"
+        >{{ name }}</a
+      >
+    </template>
+    <template #expand="item">
+      <div class="p-5">
+        <h2 class="font-bold">Short Description</h2>
+        <p v-if="!item.short_description">None 😢</p>
+        <p v-else>{{ item.short_description }}</p>
+      </div>
+    </template>
+  </EasyDataTable>
 </template>
 
 <style>
@@ -149,6 +128,7 @@
 .usage-filter {
   display: flex;
   justify-content: center;
+  margin-top: -45px;
 }
 
 .usage-filter .filter-label {
@@ -156,6 +136,10 @@
   margin-top: 10px;
   margin-right: 30px;
   vertical-align: middle;
+  font-size: 13px;
+}
+select#grid-state {
+  padding: 7px;
 }
 thead.vue3-easy-data-table__header tr th:nth-child(2) > span {
   justify-content: left !important;
@@ -241,35 +225,33 @@ export default defineComponent({
             return col.v;
           });
 
-          json.table.rows.forEach((row: {c: any[];},index: Number) => {
-              if (index != 0) {
-                var obj = {
-                  address: "",
-                  category: "",
-                  content: "",
-                  keyword_1: "",
-                  keyword_2: "",
-                  keyword_3: "",
-                  name: "",
-                  short_description: "",
-                  usage: "",
-                };
+          json.table.rows.forEach((row: { c: any[] }, index: Number) => {
+            if (index != 0) {
+              var obj = {
+                address: "",
+                category: "",
+                content: "",
+                keyword_1: "",
+                keyword_2: "",
+                keyword_3: "",
+                name: "",
+                short_description: "",
+                usage: "",
+              };
 
-                row.c.map(
-                  (
-              value: {v: String},key) => {
-                    if(self.colms[key]=='category' || self.colms[key]=='usage')
-                    obj[self.colms[key]] = value.v.toLowerCase().trim();
-                    else
-                    obj[self.colms[key]] = value.v;
-                  }
-                );
-                if(self.category=='') self.mainData.push(obj);
-                else if (self.category!='' && obj.category.trim() == self.category) self.mainData.push(obj);
-                
-              }
+              row.c.map((value: { v: String }, key) => {
+                if (self.colms[key] == "category" || self.colms[key] == "usage")
+                  obj[self.colms[key]] = value.v.toLowerCase().trim();
+                else obj[self.colms[key]] = value.v;
+              });
+              if (self.category == "") self.mainData.push(obj);
+              else if (
+                self.category != "" &&
+                obj.category.trim() == self.category
+              )
+                self.mainData.push(obj);
             }
-          );
+          });
         });
       this.items = self.mainData;
       this.loading = false;

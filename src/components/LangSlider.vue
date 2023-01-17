@@ -11,15 +11,15 @@
             <td class="td_one"></td>
           </tr>
           <tr>
-            <th scope="row">BI</th>
+            <th scope="row">Business</th>
             <td class="td_two"></td>
           </tr>
           <tr>
-            <th scope="row">SQL</th>
+            <th scope="row">Database</th>
             <td class="td_three"></td>
           </tr>
           <tr>
-            <th scope="row">Python</th>
+            <th scope="row">Coding</th>
             <td class="td_four"></td>
           </tr>
           <tr>
@@ -29,6 +29,7 @@
         </tbody>
       </table>
     </div>
+    <h1 class="Software_heading">Softwares</h1>
     <div id="lang-wrapper">
       <swiper
         :grabCursor="true"
@@ -79,6 +80,7 @@
         </svg>
       </button>
     </div>
+    <h1 class="data_heading">Data Skills</h1>
     <div id="lang-wrapper">
       <swiper
         :grabCursor="true"
@@ -133,6 +135,20 @@
 </template>
 
 <style>
+.Software_heading {
+  font-size: 16px;
+  margin-top: -10px;
+  margin-bottom: 10px;
+  color: #fff;
+  text-decoration: underline;
+}
+.data_heading {
+  font-size: 16px;
+  margin-top: 27px;
+  margin-bottom: -37px;
+  color: #fff;
+  text-decoration: underline;
+}
 #lang-wrapper {
   mask-image: linear-gradient(
     to right,
@@ -195,12 +211,12 @@ graph_one {
 #animations-example-6 td {
   background-image: linear-gradient(
     45deg,
-    #BEFFE7,
-    #F8BEFF,
-    #FFF1BE,
-    #BEECFF,
-    #E5D3FF,
-    #FFD3D3
+    #beffe7,
+    #f8beff,
+    #fff1be,
+    #beecff,
+    #e5d3ff,
+    #ffd3d3
   );
   background-size: 600%;
   animation: gradient-animation 3s linear infinite alternate;
@@ -214,33 +230,39 @@ graph_one {
   }
 }
 .graph_one {
-  margin-top: -20px;
-  margin-bottom: 20px;
+  margin-top: -50px;
+  margin-bottom: 28px;
 }
 .graph_one th {
   color: #fff;
   margin-top: 3px;
+  font-style: italic;
+  font-weight: 200;
+  font-size: 11px;
 }
 .graph_one tr {
   display: flex !important;
   flex-direction: column-reverse !important;
-  width: 70px;
-  margin: 5px;
+  width: 42px;
+  margin: 7px;
+}
+.graph_one td {
+  border: 2px solid #fff;
 }
 .graph_one .td_one {
-  height: 70px;
+  height: 45px;
 }
 .graph_one .td_two {
-  height: 100px;
+  height: 65px;
 }
 .graph_one .td_three {
-  height: 60px;
+  height: 37px;
 }
 .graph_one .td_four {
-  height: 90px;
+  height: 55px;
 }
 .graph_one .td_five {
-  height: 50px;
+  height: 27px;
 }
 .graph_one tbody {
   display: flex !important;
