@@ -9,13 +9,7 @@
       <span
         id="nav-title"
         class="leading-none self-center text-2xl sm:text-4xl font-semibold whitespace-nowrap text-white md:text-5xl mt-1 mb-2"
-        >Data Engineer </span
-      >
-
-      <span
-        id="nav-title"
-        class="leading-none self-center text-2xl sm:text-4xl font-semibold whitespace-nowrap text-white md:text-5xl mt-1 mb-2"
-        >Julian Passebecq</span
+        >Ivan Pazbek</span
       >
 
       <div class="w-auto text-white py-2.5" id="navbar-buttons">
@@ -66,7 +60,8 @@
 #nav-title {
   text-shadow: 1px 1px 0 #000, -1px -1px 0 #000, 1px -1px 0 #000,
     -1px 1px 0 #000, 1px 1px 0 #000;
-  font-family: "DancingScript", serif;
+  font-family: "Anvir", serif;
+  font-size: 35px;
 }
 #navbar {
   background-color: #87ccfacd;

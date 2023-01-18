@@ -12,7 +12,7 @@
       'enter-to-class': 'translate-y-0',
       'leave-active-class': 'transition duration-350 ease-in-out transform',
       'leave-to-class': 'translate-y-full',
-      'leave-class': 'translate-y-0',
+      'leave-class': 'translate-y-0',O
     }"
   >
     <div
@@ -22,14 +22,14 @@
       <h1 v-if="isPrerender" class="text-3xl">
         Most starred lines of code on GitHub
       </h1>
-      <h2 class="text-2xl mt-4 font-bold text-mikado">Welcome to Julian Passebecq apps</h2>
+      <h2 class="text-2xl mt-4 font-bold text-mikado">x
+        Welcome to Julian Passebecq apps
+      </h2>
 
       <h2 class="text-xl mt-6">- Tutorials</h2>
       <div class="ml-2 md:ml-4">
-        <h3 class="mt-2">
-         it is a Vue js visual interface
-        </h3>
-        
+        <h3 class="mt-2">it is a Vue js visual interface</h3>
+
         <h3>
           If you want to reach me
           <a
@@ -65,14 +65,14 @@ export default {
   },
   computed: {
     showModalModel: {
-      get () {
-        return this.showModal
+      get() {
+        return this.showModal;
       },
-      set (value) {
+      set(value) {
         if (value === false) {
-          this.closed()
+          this.closed();
         }
-      }
+      },
     },
   },
   name: "Readme",
